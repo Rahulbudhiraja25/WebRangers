@@ -7,57 +7,51 @@
       </a>
 
       <nav class="nav">
-        <a href="#services">Services</a>
-        <a href="#approach">Approach</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
+        @for (link of navLinks; track link.href) {
+          <a [href]="link.href">{{ link.label }}</a>
+        }
       </nav>
     </header>
 
     <div class="hero__content">
       <div class="hero__copy">
-        <p class="eyebrow">Rohtak | Haryana | NCR</p>
-        <h1>Take Your Business Online With a Premium Digital Growth Partner.</h1>
-        <p class="hero__text">
-          Web Rangers helps local brands look sharper, sell smarter, and grow faster with
-          performance-led creative, ad campaigns, and websites that feel premium from the first click.
-        </p>
+        <p class="eyebrow">{{ hero.location }}</p>
+        <h1>{{ hero.title }}</h1>
+        <p class="hero__text">{{ hero.description }}</p>
 
         <div class="hero__actions">
-          <a class="button button--primary" href="https://www.instagram.com/theweb_rangers/" target="_blank" rel="noreferrer">
-            View Instagram
+          <a class="button button--primary" [href]="hero.primaryCta.href" target="_blank" rel="noreferrer">
+            {{ hero.primaryCta.label }}
           </a>
-          <a class="button button--secondary" href="#services">
-            Explore Services
+          <a class="button button--secondary" [href]="hero.secondaryCta.href">
+            {{ hero.secondaryCta.label }}
           </a>
         </div>
 
         <ul class="hero__highlights">
-          <li>Vision to Viral positioning</li>
-          <li>Built for new-age local businesses</li>
-          <li>Creative + performance in one team</li>
+          @for (item of hero.highlights; track item) {
+            <li>{{ item }}</li>
+          }
         </ul>
       </div>
 
       <div class="hero__panel">
         <div class="hero-card hero-card--primary">
-          <span class="hero-card__label">Digital Growth Stack</span>
-          <h2>Your one-stop-shop for digital solutions.</h2>
+          <span class="hero-card__label">Built For Local Growth</span>
+          <h2>Creative, visibility, and conversion under one roof.</h2>
           <p>
-            From reels production to ad strategy and website creation, we build the online presence
-            that makes businesses look established and market-ready.
+            Instead of fragmented execution, Web Rangers gives businesses one direction for reels,
+            posters, ads, Google presence, and websites that look strong from the first impression.
           </p>
         </div>
 
         <div class="hero-card-grid">
-          <article class="hero-card hero-card--stat">
-            <strong>5</strong>
-            <span>Core services built for launch-stage growth</span>
-          </article>
-          <article class="hero-card hero-card--stat">
-            <strong>Rohtak</strong>
-            <span>Local roots with Haryana and NCR reach</span>
-          </article>
+          @for (stat of heroStats; track stat.label) {
+            <article class="hero-card hero-card--stat">
+              <strong>{{ stat.value }}</strong>
+              <span>{{ stat.label }}</span>
+            </article>
+          }
         </div>
       </div>
     </div>
@@ -65,83 +59,49 @@
 
   <section class="marquee" aria-label="Brand message">
     <div class="marquee__track">
-      <span>Premium Websites</span>
-      <span>Performance Ads</span>
       <span>Reels Shooting</span>
-      <span>Google Ads</span>
-      <span>Social Media Ads</span>
-      <span>Business Visibility</span>
+      <span>Poster Design</span>
+      <span>Google Visibility</span>
+      <span>Performance Ads</span>
+      <span>Website Creation</span>
+      <span>Local Brand Growth</span>
     </div>
   </section>
 
   <section class="services section" id="services">
     <div class="section-heading">
-      <p class="eyebrow">What We Do</p>
-      <h2>Digital services designed to make your brand impossible to ignore.</h2>
-      <p>
-        Every service is shaped to help businesses build authority, attract attention, and convert
-        more of that attention into real enquiries.
-      </p>
+      <p class="eyebrow">{{ servicesIntro.eyebrow }}</p>
+      <h2>{{ servicesIntro.title }}</h2>
+      <p>{{ servicesIntro.description }}</p>
     </div>
 
     <div class="services__grid">
-      <article class="service-card">
-        <span>01</span>
-        <h3>Reels Shooting</h3>
-        <p>Create scroll-stopping short-form content that makes your business feel modern, active, and trustworthy.</p>
-      </article>
-
-      <article class="service-card">
-        <span>02</span>
-        <h3>Google Business Listing</h3>
-        <p>Show up professionally on local search with optimized business presence that improves discovery and credibility.</p>
-      </article>
-
-      <article class="service-card">
-        <span>03</span>
-        <h3>Social Media Ads</h3>
-        <p>Reach the right audience with campaign creative and targeting built to generate leads, reach, and recognition.</p>
-      </article>
-
-      <article class="service-card">
-        <span>04</span>
-        <h3>Google Ads</h3>
-        <p>Capture high-intent traffic with paid search strategies focused on visibility, enquiries, and measurable business outcomes.</p>
-      </article>
-
-      <article class="service-card">
-        <span>05</span>
-        <h3>Website Creation</h3>
-        <p>Launch premium, mobile-first websites that communicate trust instantly and help turn visitors into customers.</p>
-      </article>
+      @for (service of services; track service.title) {
+        <article class="service-card">
+          <span>{{ service.number }}</span>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+        </article>
+      }
     </div>
   </section>
 
   <section class="about section">
     <div class="about__content">
       <div class="section-heading">
-        <p class="eyebrow">Why Web Rangers</p>
-        <h2>We build digital presence that looks premium before it asks for attention.</h2>
+        <p class="eyebrow">{{ positioning.eyebrow }}</p>
+        <h2>{{ positioning.title }}</h2>
       </div>
 
-      <p>
-        As a new digital marketing agency in Rohtak, we are focused on helping growing businesses take
-        their first strong step online with smart creative, clean brand presentation, and performance-minded strategy.
-      </p>
+      <p>{{ positioning.description }}</p>
 
       <div class="about__points">
-        <div>
-          <h3>Local market understanding</h3>
-          <p>We understand the tone, pace, and buyer behavior of Haryana and NCR businesses.</p>
-        </div>
-        <div>
-          <h3>Premium-first execution</h3>
-          <p>From visuals to copy to layout, we make brands feel polished and high-value.</p>
-        </div>
-        <div>
-          <h3>Practical growth focus</h3>
-          <p>We choose channels and assets that help businesses get visible without unnecessary complexity.</p>
-        </div>
+        @for (point of positioningPoints; track point.title) {
+          <div>
+            <h3>{{ point.title }}</h3>
+            <p>{{ point.description }}</p>
+          </div>
+        }
       </div>
     </div>
 
@@ -149,86 +109,206 @@
       <div class="info-card">
         <p class="eyebrow">Agency Snapshot</p>
         <ul>
-          <li>New-age digital agency for ambitious local businesses</li>
-          <li>One team for creative, ads, and web presence</li>
-          <li>Ideal for businesses ready to scale online with clarity</li>
+          @for (item of agencySnapshot; track item) {
+            <li>{{ item }}</li>
+          }
         </ul>
       </div>
     </aside>
   </section>
 
-  <section class="approach section" id="approach">
-    <div class="section-heading">
-      <p class="eyebrow">How We Work</p>
-      <h2>A simple growth process that moves from brand clarity to market visibility.</h2>
-    </div>
-
-    <div class="steps">
-      <article class="step-card">
-        <span>01</span>
-        <h3>Understand</h3>
-        <p>We start with your business goals, audience, and what makes your offer worth choosing.</p>
-      </article>
-
-      <article class="step-card">
-        <span>02</span>
-        <h3>Build</h3>
-        <p>We shape the right assets for growth, from reels and ad creatives to landing pages and listings.</p>
-      </article>
-
-      <article class="step-card">
-        <span>03</span>
-        <h3>Launch</h3>
-        <p>We take your business live with premium execution that is ready for real market attention.</p>
-      </article>
-
-      <article class="step-card">
-        <span>04</span>
-        <h3>Grow</h3>
-        <p>We refine the presence and campaigns so your online brand keeps moving forward with purpose.</p>
-      </article>
+  <section class="showreel section" id="founder-reel" aria-label="Founder reel">
+    <div class="showreel__featured showreel__featured--embed">
+      <div class="video-card video-card--embed">
+        <div class="instagram-embed-wrapper">
+          <blockquote
+            class="instagram-media"
+            [attr.data-instgrm-permalink]="founderSection.reel.permalink"
+            data-instgrm-version="14"
+          >
+            <a [href]="founderSection.reel.permalink" target="_blank" rel="noreferrer">View this reel on Instagram</a>
+          </blockquote>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="portfolio section" id="portfolio">
-    <div class="portfolio__intro">
-      <p class="eyebrow">Portfolio Platform</p>
-      <h2>This landing page is phase one of a bigger Web Rangers presence.</h2>
-      <p>
-        We are building a digital showcase platform where future case studies, social proof, project highlights,
-        and service-specific pages can live in one premium ecosystem.
-      </p>
+  <section class="posters section" id="work">
+    <div class="section-heading">
+      <p class="eyebrow">{{ workSection.eyebrow }}</p>
+      <h2>{{ workSection.title }}</h2>
+      <p>{{ workSection.description }}</p>
     </div>
 
-    <div class="portfolio__cards">
-      <article class="portfolio-card">
-        <h3>Landing Experience</h3>
-        <p>Built to introduce the brand, communicate trust fast, and push visitors toward direct contact.</p>
-      </article>
+    <div class="poster-grid">
+      @for (poster of posters; track poster.image) {
+        <article class="poster-card">
+          <div class="poster-card__image">
+            <img [src]="poster.image" [alt]="poster.alt" loading="lazy" />
+          </div>
+          <div class="poster-card__content">
+            <p class="eyebrow">{{ poster.category }}</p>
+            <h3>{{ poster.title }}</h3>
+            <p>{{ poster.description }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
 
-      <article class="portfolio-card">
-        <h3>Next Phase Ready</h3>
-        <p>Structured to expand into full portfolio, services pages, enquiries, testimonials, and case studies.</p>
-      </article>
+  <section class="approach section" id="approach">
+    <div class="section-heading">
+      <p class="eyebrow">{{ processSection.eyebrow }}</p>
+      <h2>{{ processSection.title }}</h2>
+    </div>
+
+    <div class="steps">
+      @for (step of processSteps; track step.title) {
+        <article class="step-card">
+          <span>{{ step.number }}</span>
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.description }}</p>
+        </article>
+      }
     </div>
   </section>
 
   <section class="contact section" id="contact">
     <div class="contact__card">
-      <p class="eyebrow">Let's Build Digital Futures</p>
-      <h2>Looking for a digital solution for your business?</h2>
-      <p>
-        Web Rangers is here to help your business grow online with a sharper brand presence and performance-focused execution.
-      </p>
+      <div class="contact__intro">
+        <p class="eyebrow">Let's Build Digital Futures</p>
+        <h2>Ready to make your business look stronger online?</h2>
+        <p>
+          If you want better reels, sharper posters, stronger ads, or a website that makes people trust
+          your business faster, Web Rangers is ready to build it with you.
+        </p>
 
-      <div class="contact__actions">
-        <a class="button button--primary" href="https://www.instagram.com/theweb_rangers/" target="_blank" rel="noreferrer">
-          DM on Instagram
-        </a>
-        <a class="button button--secondary" href="https://www.instagram.com/anujbudhiraja_/" target="_blank" rel="noreferrer">
-          Connect With Founder
-        </a>
+        <div class="contact__actions">
+          <a class="button button--primary" href="tel:+919996526128">
+            Call Now
+          </a>
+          <a class="button button--secondary" href="https://www.instagram.com/theweb_rangers/" target="_blank" rel="noreferrer">
+            DM on Instagram
+          </a>
+          <a class="button button--secondary" href="https://wa.me/919996526128" target="_blank" rel="noreferrer">
+            Chat on WhatsApp
+          </a>
+        </div>
       </div>
+
+      <form class="contact-form" [attr.action]="formspreeEndpoint" method="POST" (submit)="submitContactForm($event)">
+        <div class="form-grid">
+          <label class="field">
+            <span>Name</span>
+            <input type="text" name="name" placeholder="Your full name" required (input)="resetFieldValidity($event)" />
+          </label>
+
+          <label class="field">
+            <span>Phone</span>
+            <input type="tel" name="phone" placeholder="+91 98xxxxxx" required (input)="resetFieldValidity($event)" />
+          </label>
+
+          <label class="field">
+            <span>Email</span>
+            <input type="email" name="email" placeholder="you@example.com" required (input)="resetFieldValidity($event)" />
+          </label>
+
+          <label class="field">
+            <span>Business</span>
+            <input type="text" name="business" placeholder="Business or brand name" />
+          </label>
+
+          <label class="field field--full">
+            <span>Service Needed</span>
+            <select name="service" required (change)="resetFieldValidity($event)">
+              <option value="" disabled selected>Select a service</option>
+              @for (service of services; track service.title) {
+                <option [value]="service.title">{{ service.title }}</option>
+              }
+              <option value="Multiple Services">Multiple Services</option>
+            </select>
+          </label>
+
+          <label class="field field--full">
+            <span>Project Brief</span>
+            <textarea
+              name="message"
+              rows="5"
+              placeholder="Tell us about your business, goals, and what you want to achieve online."
+              required
+              (input)="resetFieldValidity($event)"
+            ></textarea>
+          </label>
+        </div>
+
+        <input type="hidden" name="_subject" value="New Web Rangers website enquiry" />
+        <input type="text" name="_gotcha" class="contact-form__honeypot" tabindex="-1" autocomplete="off" />
+
+        <div class="contact-form__footer">
+          <p>Share what you need, and we will come back with the right plan for your business.</p>
+          <button class="button button--primary" type="submit" [disabled]="isSubmitting">
+            {{ isSubmitting ? 'Sending...' : 'Send Enquiry' }}
+          </button>
+        </div>
+      </form>
     </div>
   </section>
+
+  <div class="floating-cta" aria-label="Quick contact links">
+    <a
+      class="floating-cta__button floating-cta__button--call"
+      href="tel:+919996526128"
+      aria-label="Call Web Rangers now"
+    >
+      <span class="floating-cta__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" role="img" focusable="false">
+          <path
+            d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.11.37 2.29.56 3.49.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.85 21 3 13.15 3 3.99a1 1 0 0 1 1-1H7.5a1 1 0 0 1 1 1c0 1.2.19 2.38.56 3.49a1 1 0 0 1-.25 1.01l-2.19 2.3Z"
+          />
+        </svg>
+      </span>
+      <span class="floating-cta__label">Call Now</span>
+    </a>
+
+    <a
+      class="floating-cta__button floating-cta__button--instagram"
+      href="https://www.instagram.com/theweb_rangers/"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Contact Web Rangers on Instagram"
+    >
+      <span class="floating-cta__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" role="img" focusable="false">
+          <path
+            d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm8.88 1.75a1.12 1.12 0 1 1 0 2.25 1.12 1.12 0 0 1 0-2.25ZM12 6.5A5.5 5.5 0 1 1 6.5 12 5.51 5.51 0 0 1 12 6.5Zm0 1.5A4 4 0 1 0 16 12a4 4 0 0 0-4-4Z"
+          />
+        </svg>
+      </span>
+      <span class="floating-cta__label">Instagram</span>
+    </a>
+
+    <a
+      class="floating-cta__button floating-cta__button--whatsapp"
+      href="https://wa.me/919996526128"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Contact Web Rangers on WhatsApp"
+    >
+      <span class="floating-cta__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" role="img" focusable="false">
+          <path
+            d="M12.04 2C6.55 2 2.1 6.45 2.1 11.94c0 1.93.56 3.81 1.62 5.42L2 22l4.79-1.66a9.91 9.91 0 0 0 5.25 1.51H12c5.49 0 9.94-4.45 9.94-9.94S17.53 2 12.04 2Zm0 18.19h-.01a8.22 8.22 0 0 1-4.18-1.14l-.3-.18-2.84.98.93-2.76-.2-.32a8.22 8.22 0 0 1-1.27-4.36c0-4.55 3.71-8.25 8.27-8.25a8.2 8.2 0 0 1 5.84 2.42 8.2 8.2 0 0 1 2.41 5.84c0 4.56-3.7 8.27-8.25 8.27Zm4.53-6.2c-.25-.13-1.46-.72-1.69-.8-.22-.08-.39-.12-.55.13-.17.25-.63.8-.78.96-.14.17-.28.18-.53.06-.25-.12-1.04-.38-1.99-1.22-.73-.65-1.23-1.45-1.37-1.7-.15-.25-.02-.38.11-.5.11-.11.25-.28.37-.42.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.55-1.34-.76-1.84-.2-.48-.4-.42-.55-.42h-.47c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.01 0 1.18.87 2.33.99 2.49.12.17 1.7 2.6 4.11 3.65.57.25 1.02.4 1.37.51.58.19 1.11.16 1.52.1.46-.07 1.46-.6 1.67-1.18.2-.58.2-1.08.14-1.18-.05-.1-.21-.16-.45-.28Z"
+          />
+        </svg>
+      </span>
+      <span class="floating-cta__label">WhatsApp</span>
+    </a>
+  </div>
+
+  @if (submissionToast; as toast) {
+    <div class="submission-toast" [class.submission-toast--error]="toast.type === 'error'" role="status" aria-live="polite">
+      <span class="submission-toast__title">{{ toast.type === 'success' ? 'Thank You' : 'Submission Failed' }}</span>
+      <p>{{ toast.message }}</p>
+    </div>
+  }
 </main>
