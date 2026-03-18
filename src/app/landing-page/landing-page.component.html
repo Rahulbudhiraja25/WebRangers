@@ -1,4 +1,13 @@
 <main class="landing-page">
+    <div class="top-banner">
+    <a
+      href="https://wa.me/919996526128?text=Hi%2C%20I%20want%20to%20work%20with%20Web%20Rangers"
+      target="_blank"
+      rel="noreferrer"
+    >
+      🎬 Looking for models for reel shoots — Connect with us
+    </a>
+  </div>
   <section class="hero" id="top">
     <header class="topbar">
       <a class="brand" href="#top" aria-label="Web Rangers home">
@@ -126,7 +135,13 @@
             [attr.data-instgrm-permalink]="founderSection.reel.permalink"
             data-instgrm-version="14"
           >
-            <a [href]="founderSection.reel.permalink" target="_blank" rel="noreferrer">View this reel on Instagram</a>
+            <div class="instagram-embed-fallback" aria-hidden="true">
+              <img src="assets/logo.jpeg" alt="" />
+              <span>Founder Reel</span>
+            </div>
+            <a class="instagram-embed-link" [href]="founderSection.reel.permalink" target="_blank" rel="noreferrer">
+              Loading Instagram reel
+            </a>
           </blockquote>
         </div>
       </div>
@@ -190,7 +205,7 @@
           <a class="button button--secondary" href="https://www.instagram.com/theweb_rangers/" target="_blank" rel="noreferrer">
             DM on Instagram
           </a>
-          <a class="button button--secondary" href="https://wa.me/919996526128" target="_blank" rel="noreferrer">
+          <a class="button button--secondary" href="https://wa.me/919996526128?text=Hi%2C%20I%E2%80%99m%20interested%20in%20starting%20my%20business%20journey%20with%20Web%20Rangers.%20Could%20you%20please%20share%20more%20details%20about%20your%20plans%3F" target="_blank" rel="noreferrer">
             Chat on WhatsApp
           </a>
         </div>
@@ -289,7 +304,7 @@
 
     <a
       class="floating-cta__button floating-cta__button--whatsapp"
-      href="https://wa.me/919996526128"
+      href="https://wa.me/919996526128?text=Hi%2C%20I%E2%80%99m%20interested%20in%20starting%20my%20business%20journey%20with%20Web%20Rangers.%20Could%20you%20please%20share%20more%20details%20about%20your%20plans%3F"
       target="_blank"
       rel="noreferrer"
       aria-label="Contact Web Rangers on WhatsApp"

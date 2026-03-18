@@ -99,6 +99,11 @@ export class LandingPageComponent implements AfterViewInit {
       number: '06',
       title: 'Website Creation',
       description: 'Clean, mobile-first websites that help your business look premium and convert visits into enquiries.'
+    },
+     {
+      number: '07',
+      title: 'Others',
+      description: 'Others unlisted'
     }
   ];
 
