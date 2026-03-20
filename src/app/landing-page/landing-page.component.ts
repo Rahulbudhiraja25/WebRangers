@@ -30,7 +30,7 @@ export class LandingPageComponent implements AfterViewInit {
 
   readonly navLinks = [
     { label: 'Services', href: '#services' },
-    { label: 'Rohtak SEO', href: '#rohtak-agency' },
+    { label: 'Growth Partner', href: '#rohtak-agency' },
     { label: 'Work', href: '#work' },
     { label: 'FAQ', href: '#faq' },
     { label: 'Contact', href: '#contact' }
