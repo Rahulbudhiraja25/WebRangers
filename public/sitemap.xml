@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://webrangers.co.in/</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://webrangers.co.in/assets/logo.jpeg</image:loc>
+      <image:title>Web Rangers logo</image:title>
+      <image:caption>Web Rangers digital marketing agency in Rohtak</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://webrangers.co.in/assets/post1.PNG</image:loc>
+      <image:title>Web Rangers creative work</image:title>
+      <image:caption>Poster design sample by Web Rangers</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://webrangers.co.in/assets/post2.PNG</image:loc>
+      <image:title>Web Rangers festive poster design</image:title>
+      <image:caption>Festive poster creative by Web Rangers</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://webrangers.co.in/assets/post4.png</image:loc>
+      <image:title>Web Rangers product visual design</image:title>
+      <image:caption>Product poster design by Web Rangers</image:caption>
+    </image:image>
+  </url>
+</urlset>

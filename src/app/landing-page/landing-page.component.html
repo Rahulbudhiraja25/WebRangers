@@ -1,17 +1,14 @@
 <main class="landing-page">
-    <div class="top-banner">
-    <a
-      href="https://wa.me/919996526128?text=Hi%2C%20I%20want%20to%20work%20with%20Web%20Rangers"
-      target="_blank"
-      rel="noreferrer"
-    >
-      🎬 Looking for models for reel shoots — Connect with us
+  <div class="top-banner">
+    <a [href]="whatsappUrl" target="_blank" rel="noopener noreferrer">
+      Looking for models for reel shoots? Connect with us.
     </a>
   </div>
+
   <section class="hero" id="top">
     <header class="topbar">
       <a class="brand" href="#top" aria-label="Web Rangers home">
-        <img src="assets/logo.jpeg" alt="Web Rangers logo" />
+        <img src="assets/logo.jpeg" alt="Web Rangers digital marketing agency logo" width="500" height="500" />
         <span>Web Rangers</span>
       </a>
 
@@ -29,7 +26,7 @@
         <p class="hero__text">{{ hero.description }}</p>
 
         <div class="hero__actions">
-          <a class="button button--primary" [href]="hero.primaryCta.href" target="_blank" rel="noreferrer">
+          <a class="button button--primary" [href]="hero.primaryCta.href" target="_blank" rel="noopener noreferrer">
             {{ hero.primaryCta.label }}
           </a>
           <a class="button button--secondary" [href]="hero.secondaryCta.href">
@@ -126,6 +123,40 @@
     </aside>
   </section>
 
+  <section class="local-seo section" id="rohtak-agency">
+    <div class="section-heading section-heading--wide">
+      <p class="eyebrow">{{ localSeoSection.eyebrow }}</p>
+      <h2>{{ localSeoSection.title }}</h2>
+      <p>{{ localSeoSection.description }}</p>
+    </div>
+
+    <div class="local-seo__grid">
+      @for (item of localSearchPoints; track item.title) {
+        <article class="seo-card">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+        </article>
+      }
+    </div>
+
+    <div class="service-area">
+      <div class="service-area__copy">
+        <p class="eyebrow">Areas We Serve</p>
+        <h3>Rohtak-first digital growth support with reach across Haryana and NCR.</h3>
+        <p>
+          We work best with businesses that want local market understanding plus execution across content,
+          ads, Google visibility, and websites.
+        </p>
+      </div>
+
+      <div class="service-area__list">
+        @for (area of serviceAreas; track area) {
+          <span>{{ area }}</span>
+        }
+      </div>
+    </div>
+  </section>
+
   <section class="showreel section" id="founder-reel" aria-label="Founder reel">
     <div class="showreel__featured showreel__featured--embed">
       <div class="video-card video-card--embed">
@@ -139,7 +170,7 @@
               <img src="assets/logo.jpeg" alt="" />
               <span>Founder Reel</span>
             </div>
-            <a class="instagram-embed-link" [href]="founderSection.reel.permalink" target="_blank" rel="noreferrer">
+            <a class="instagram-embed-link" [href]="founderSection.reel.permalink" target="_blank" rel="noopener noreferrer">
               Loading Instagram reel
             </a>
           </blockquote>
@@ -199,15 +230,36 @@
         </p>
 
         <div class="contact__actions">
-          <a class="button button--primary" href="tel:+919996526128">
+          <a class="button button--primary" [href]="'tel:' + primaryPhone">
             Call Now
           </a>
-          <a class="button button--secondary" href="https://www.instagram.com/theweb_rangers/" target="_blank" rel="noreferrer">
+          <a class="button button--secondary" [href]="instagramUrl" target="_blank" rel="noopener noreferrer">
             DM on Instagram
           </a>
-          <a class="button button--secondary" href="https://wa.me/919996526128?text=Hi%2C%20I%E2%80%99m%20interested%20in%20starting%20my%20business%20journey%20with%20Web%20Rangers.%20Could%20you%20please%20share%20more%20details%20about%20your%20plans%3F" target="_blank" rel="noreferrer">
+          <a class="button button--secondary" [href]="whatsappUrl" target="_blank" rel="noopener noreferrer">
             Chat on WhatsApp
           </a>
+        </div>
+
+        <div class="contact__details">
+          @for (detail of contactDetails; track detail.label) {
+            @if (detail.href) {
+              <a
+                class="contact-detail"
+                [href]="detail.href"
+                [attr.target]="detail.href.startsWith('http') ? '_blank' : null"
+                [attr.rel]="detail.href.startsWith('http') ? 'noopener noreferrer' : null"
+              >
+                <span>{{ detail.label }}</span>
+                <strong>{{ detail.value }}</strong>
+              </a>
+            } @else {
+              <div class="contact-detail">
+                <span>{{ detail.label }}</span>
+                <strong>{{ detail.value }}</strong>
+              </div>
+            }
+          }
         </div>
       </div>
 
@@ -269,10 +321,27 @@
     </div>
   </section>
 
+  <section class="faq section" id="faq">
+    <div class="section-heading section-heading--wide">
+      <p class="eyebrow">{{ faqSection.eyebrow }}</p>
+      <h2>{{ faqSection.title }}</h2>
+      <p>{{ faqSection.description }}</p>
+    </div>
+
+    <div class="faq-list">
+      @for (faq of faqs; track faq.question) {
+        <details class="faq-item">
+          <summary>{{ faq.question }}</summary>
+          <p>{{ faq.answer }}</p>
+        </details>
+      }
+    </div>
+  </section>
+
   <div class="floating-cta" aria-label="Quick contact links">
     <a
       class="floating-cta__button floating-cta__button--call"
-      href="tel:+919996526128"
+      [href]="'tel:' + primaryPhone"
       aria-label="Call Web Rangers now"
     >
       <span class="floating-cta__icon" aria-hidden="true">
@@ -287,9 +356,9 @@
 
     <a
       class="floating-cta__button floating-cta__button--instagram"
-      href="https://www.instagram.com/theweb_rangers/"
+      [href]="instagramUrl"
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
       aria-label="Contact Web Rangers on Instagram"
     >
       <span class="floating-cta__icon" aria-hidden="true">
@@ -304,9 +373,9 @@
 
     <a
       class="floating-cta__button floating-cta__button--whatsapp"
-      href="https://wa.me/919996526128?text=Hi%2C%20I%E2%80%99m%20interested%20in%20starting%20my%20business%20journey%20with%20Web%20Rangers.%20Could%20you%20please%20share%20more%20details%20about%20your%20plans%3F"
+      [href]="whatsappUrl"
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
       aria-label="Contact Web Rangers on WhatsApp"
     >
       <span class="floating-cta__icon" aria-hidden="true">

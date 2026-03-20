@@ -21,50 +21,55 @@ export class LandingPageComponent implements AfterViewInit {
   private toastTimeoutId: ReturnType<typeof setTimeout> | null = null;
 
   readonly formspreeEndpoint = 'https://formspree.io/f/xwvrqgbr';
+  readonly instagramUrl = 'https://www.instagram.com/theweb_rangers/';
+  readonly whatsappUrl = 'https://wa.me/919996526128?text=Hi%2C%20I%20want%20to%20grow%20my%20business%20with%20Web%20Rangers';
+  readonly primaryPhone = '+919996526128';
+  readonly displayPhone = '+91 99965 26128';
   isSubmitting = false;
   submissionToast: { type: 'success' | 'error'; message: string } | null = null;
 
   readonly navLinks = [
     { label: 'Services', href: '#services' },
+    { label: 'Rohtak SEO', href: '#rohtak-agency' },
     { label: 'Work', href: '#work' },
-    { label: 'Founder Reel', href: '#founder-reel' },
+    { label: 'FAQ', href: '#faq' },
     { label: 'Contact', href: '#contact' }
   ];
 
   readonly hero = {
-    location: 'Rohtak | Haryana | NCR',
-    title: 'Digital Presence That Makes Local Businesses Look Bigger, Better, and Easier to Trust.',
+    location: 'Digital Marketing Agency in Rohtak, Haryana',
+    title: 'Digital Marketing Agency in Rohtak for Businesses That Want More Calls, Better Trust, and Real Enquiries.',
     description:
-      'Web Rangers helps local brands move from offline goodwill to strong online recall with reels, poster design, Google visibility, ad campaigns, and websites built to generate real enquiries.',
+      'Web Rangers helps Rohtak businesses grow online with reels, poster design, Google Business Profile optimisation, social media ads, Google Ads, and websites built to turn attention into enquiries.',
     primaryCta: {
-      label: 'View Instagram',
-      href: 'https://www.instagram.com/theweb_rangers/'
+      label: 'Chat on WhatsApp',
+      href: this.whatsappUrl
     },
     secondaryCta: {
       label: 'See Our Work',
       href: '#work'
     },
     highlights: [
-      'Reels that stop the scroll',
-      'Poster creatives that feel campaign-ready',
-      'Ads and websites built for enquiries'
+      'Rohtak-focused digital marketing support',
+      'Google Ads, social ads, and local visibility',
+      'Websites and creatives built for enquiries'
     ]
   };
 
   readonly heroStats = [
     {
-      value: '6',
-      label: 'growth services handled by one creative-first team'
+      value: '7',
+      label: 'digital growth services handled by one creative-first team'
     },
     {
-      value: 'Local',
+      value: 'Rohtak',
       label: 'market understanding shaped for Rohtak, Haryana, and NCR businesses'
     }
   ];
 
   readonly servicesIntro = {
     eyebrow: 'What We Build',
-    title: 'Everything a growing business needs to look serious online.',
+    title: 'Digital marketing services in Rohtak that help local businesses look serious online.',
     description:
       'We do not just make posts. We shape how your business is seen, remembered, and contacted across social media, Google, and your website.'
   };
@@ -73,45 +78,45 @@ export class LandingPageComponent implements AfterViewInit {
     {
       number: '01',
       title: 'Reels Shooting',
-      description: 'Short-form content planned and shot to make your business look active, relevant, and worth noticing.'
+      description: 'Short-form content planned and shot to make your business look active, relevant, and worth noticing in the local market.'
     },
     {
       number: '02',
       title: 'Poster Design',
-      description: 'Campaign posters and social creatives that make your offers, products, and brand visuals feel sharper and more premium.'
+      description: 'Campaign posters and social creatives that make your offers, products, and brand visuals feel sharper, clearer, and more premium.'
     },
     {
       number: '03',
-      title: 'Google Business Listing',
-      description: 'Local search visibility that helps nearby customers discover your business with more trust and clarity.'
+      title: 'Google Business Profile',
+      description: 'Local search visibility that helps nearby customers discover your business with stronger trust, reviews, and clarity.'
     },
     {
       number: '04',
       title: 'Social Media Ads',
-      description: 'Paid campaigns designed to get attention, build demand, and drive quality leads from the right audience.'
+      description: 'Paid campaigns designed to get attention, build demand, and drive quality leads from the right audience in and around Rohtak.'
     },
     {
       number: '05',
       title: 'Google Ads',
-      description: 'Intent-driven ad campaigns for businesses that want enquiries from people already searching for solutions.'
+      description: 'Intent-driven ad campaigns for businesses that want enquiries from people already searching for solutions right now.'
     },
     {
       number: '06',
-      title: 'Website Creation',
+      title: 'Website Design and Development',
       description: 'Clean, mobile-first websites that help your business look premium and convert visits into enquiries.'
     },
-     {
+    {
       number: '07',
-      title: 'Others',
-      description: 'Others unlisted'
+      title: 'Brand Support',
+      description: 'Custom campaign support, launch creatives, and extra digital execution tailored to your business goals.'
     }
   ];
 
   readonly positioning = {
     eyebrow: 'Why Web Rangers',
-    title: 'Built for businesses that already deliver quality offline and now want the internet to reflect it.',
+    title: 'Built for businesses that already deliver quality offline and now want the internet to reflect it online.',
     description:
-      'A lot of local businesses already have trust in the market. What they need is a better digital face. That is where Web Rangers steps in with local understanding, stronger presentation, and growth-focused execution.'
+      'A lot of local businesses in Rohtak already have trust in the market. What they need is a better digital face. That is where Web Rangers steps in with local understanding, stronger presentation, and growth-focused execution.'
   };
 
   readonly positioningPoints = [
@@ -130,9 +135,58 @@ export class LandingPageComponent implements AfterViewInit {
   ];
 
   readonly agencySnapshot = [
-    'For local businesses ready to look stronger online',
-    'Creative, ads, and website execution under one brand',
-    'Focused on digital growth that feels clear and market-ready'
+    'Rohtak-based digital marketing support for local businesses',
+    'Creative, ads, Google visibility, and website execution under one brand',
+    'Focused on growth that feels clear, practical, and market-ready'
+  ];
+
+  readonly localSeoSection = {
+    eyebrow: 'Rohtak Growth Partner',
+    title: 'A Rohtak digital marketing agency built for local businesses that want visible growth.',
+    description:
+      'If you are searching for a digital marketing agency in Rohtak, a social media marketing agency in Rohtak, or a website design company in Rohtak, Web Rangers brings all of that under one team.'
+  };
+
+  readonly localSearchPoints = [
+    {
+      title: 'Social media marketing in Rohtak',
+      description:
+        'We plan reels, posters, and campaign creatives that keep your brand active, memorable, and easier to trust.'
+    },
+    {
+      title: 'Google Ads for lead generation',
+      description:
+        'We run intent-driven campaigns for businesses that want more calls, enquiries, bookings, and better quality leads.'
+    },
+    {
+      title: 'Website design company in Rohtak',
+      description:
+        'We build mobile-first websites that explain your offer clearly, load fast, and push visitors toward action.'
+    },
+    {
+      title: 'Google Business Profile optimisation',
+      description:
+        'We strengthen your local Google presence so nearby customers can find you with more confidence and less friction.'
+    }
+  ];
+
+  readonly serviceAreas = ['Rohtak', 'Haryana', 'NCR'];
+
+  readonly contactDetails = [
+    {
+      label: 'Call',
+      value: this.displayPhone,
+      href: `tel:${this.primaryPhone}`
+    },
+    {
+      label: 'Location',
+      value: 'Rohtak, Haryana, India'
+    },
+    {
+      label: 'Instagram',
+      value: '@theweb_rangers',
+      href: this.instagramUrl
+    }
   ];
 
   readonly founderSection = {
@@ -154,21 +208,21 @@ export class LandingPageComponent implements AfterViewInit {
       title: 'Do Bhai campaign creative',
       description: 'Character-led food visual designed to make the brand feel playful, local, and highly recallable.',
       image: 'assets/post1.PNG',
-      alt: 'Do Bhai creative poster featuring Rabdi and Jalebi themed illustration'
+      alt: 'Do Bhai creative poster designed by Web Rangers for a local food brand'
     },
     {
       category: 'Festive Sweet Creative',
       title: 'Do Bhai halwa poster',
       description: 'Regional-language poster creative crafted to make the product feel festive, fun, and instantly eye-catching.',
       image: 'assets/post2.PNG',
-      alt: 'Do Bhai halwa poster with illustrated festive character and halwa pan'
+      alt: 'Do Bhai halwa poster designed by Web Rangers with festive product artwork'
     },
     {
       category: 'Product Visual',
       title: 'RS Gau Grit product design',
       description: 'Packaging-focused product poster built to feel clean, premium, and shelf-ready for an organic brand.',
       image: 'assets/post4.png',
-      alt: 'RS Gau Grit organic product poster with jar packaging on yellow background'
+      alt: 'RS Gau Grit product poster designed by Web Rangers for an organic brand'
     }
   ];
 
@@ -197,6 +251,35 @@ export class LandingPageComponent implements AfterViewInit {
       number: '04',
       title: 'Scale what works',
       description: 'Once attention starts coming in, we refine the assets and campaigns that push better response.'
+    }
+  ];
+
+  readonly faqSection = {
+    eyebrow: 'FAQs',
+    title: 'Answers for businesses comparing digital marketing agencies in Rohtak.',
+    description: 'These are some of the most common questions local businesses ask before starting with Web Rangers.'
+  };
+
+  readonly faqs = [
+    {
+      question: 'Why choose Web Rangers as your digital marketing agency in Rohtak?',
+      answer:
+        'Web Rangers combines creative content, paid ads, Google visibility, and website support under one team, which makes execution faster and more consistent for local businesses.'
+    },
+    {
+      question: 'Do you provide website design and development in Rohtak?',
+      answer:
+        'Yes. We create mobile-first websites for businesses in Rohtak that want a cleaner online presence, stronger trust, and better enquiry conversion.'
+    },
+    {
+      question: 'Can you manage Google Ads and social media ads for local businesses?',
+      answer:
+        'Yes. We plan and manage performance campaigns for businesses that want more calls, leads, store visits, and enquiries from the right audience.'
+    },
+    {
+      question: 'Do you help with Google Business Profile optimisation in Rohtak?',
+      answer:
+        'Yes. We help businesses improve their Google Business Profile so nearby customers can discover them more easily and trust them faster.'
     }
   ];
 

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://webrangers.co.in/sitemap.xml
+Host: webrangers.co.in
