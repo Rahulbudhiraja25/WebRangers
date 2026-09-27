@@ -2,12 +2,7 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  margin: 0;
-  background: #0d0505;
-  color: #fff4f4;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+body { margin: 0; background: #0a0a0a; }
 
 *,
 *::before,
@@ -22,3 +17,7 @@ textarea,
 select {
   font: inherit;
 }
+
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 3px solid #ef2d25; outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
